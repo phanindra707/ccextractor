@@ -1,0 +1,2 @@
+/media/phani707/IIIT/IIIT/Others/GSOC/cc-github/ccextractor/src/lib_ccx/CMakeFiles/ccx.dir
+/media/phani707/IIIT/IIIT/Others/GSOC/cc-github/ccextractor/src/CMakeFiles/ccextractor.dir

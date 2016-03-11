@@ -1049,6 +1049,7 @@ static int init_output_ctx(struct encoder_ctx *ctx, struct encoder_cfg *cfg)
 	char *basefilename = NULL; // Input filename without the extension
 	char *extension = NULL; // Input filename without the extension
 
+	ctx->force_flush = cfg->force_flush;
 
 #define check_ret(filename) 	if (ret != EXIT_OK)							\
 				{									\
@@ -1253,6 +1254,8 @@ struct encoder_ctx *init_encoder(struct encoder_cfg *opt)
 	ctx->no_type_setting = opt->no_type_setting;
 	ctx->gui_mode_reports = opt->gui_mode_reports;
 	ctx->extract = opt->extract;
+
+	ctx->force_flush = opt->force_flush;
 	ctx->keep_output_closed = opt->keep_output_closed;
 
 	ctx->subline = (unsigned char *) malloc (SUBLINESIZE);
@@ -1498,7 +1501,7 @@ int encode_sub(struct encoder_ctx *context, struct cc_subtitle *sub)
 	}
 	if (!sub->nb_data)
 		freep(&sub->data);
-	if (wrote_something)
+	if (wrote_something && context->force_flush)
 		fsync(context->out->fh); // Don't buffer
 	return wrote_something;
 }

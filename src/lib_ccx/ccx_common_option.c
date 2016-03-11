@@ -104,6 +104,7 @@ void init_options (struct ccx_s_options *options)
 	options->enc_cfg.end_credits_text=NULL;
 	options->enc_cfg.encoding = CCX_ENC_UTF_8;
 	options->enc_cfg.no_bom = 0; // Use BOM by default.
+	options->force_flush = 0; //setting ff value to be zero
 	options->enc_cfg.services_charsets = NULL;
 	options->enc_cfg.all_services_charset = NULL;
 

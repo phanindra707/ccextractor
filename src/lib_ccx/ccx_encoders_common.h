@@ -66,7 +66,7 @@ struct encoder_ctx
 	int gui_mode_reports; // If 1, output in stderr progress updates so the GUI can grab them
 	unsigned char *subline; // Temp storage for storing each line
 	int extract;
-
+	int force_flush;
 	int dtvcc_extract; //1 or 0 depending if we have to handle dtvcc
 	ccx_dtvcc_writer_ctx dtvcc_writers[CCX_DTVCC_MAX_SERVICES];
 
